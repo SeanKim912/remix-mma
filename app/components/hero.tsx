@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Hero() {
     return (
       <section id="home" className="max-h-[1195px]">
@@ -18,11 +20,6 @@ export default function Hero() {
             </div>
           </div>
           <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center bg-zinc-100 rounded-3xl overflow-hidden max-h-[1147px]">
-            <img
-              src={banner}
-              alt="Descriptive Alt Text"
-              className="w-full h-full object-cover"
-            />
           </div>
         </div>
       </section>
