@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "@remix-run/react";
-import { ClientOnly } from "remix-utils/client-only";
+import { ClientOnly } from "@remix-utils";
 
 export default function Navigation() {
     return <ClientOnly fallback={null}>{() => <NavBar />}</ClientOnly>;
