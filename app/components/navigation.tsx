@@ -1,12 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "@remix-run/react";
-import { ClientOnly } from "@remix-utils";
 
-export default function Navigation() {
-    return <ClientOnly fallback={null}>{() => <NavBar />}</ClientOnly>;
-}
-
-function NavBar() {
+export default function NavBar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [hasScrolled, setHasScrolled] = useState(false);
     const [currentSection, setCurrentSection] = useState("");
