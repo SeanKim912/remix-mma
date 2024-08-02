@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -11,12 +11,31 @@ export default function Hero() {
     "https://mmaundergroundbucket.s3.us-east-2.amazonaws.com/gym_front.jpg"
   ];
 
+  function resetTimeout() {
+    if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+    }
+  }
+
+  useEffect(() => {
+      resetTimeout();
+      timeoutRef.current = setTimeout(
+          () =>
+              setIndex((prevIndex) =>
+              prevIndex === images.length - 1 ? 0 : prevIndex + 1
+              ), 2500
+      );
+
+      return () => {
+          resetTimeout();
+      };
+  }, [index, images.length]);
+
   return (
     <section id="home" className="max-h-[1195px]">
       <div className="md:h-screen flex flex-col-reverse lg:flex-row py-3 md:py-6">
         <div className="lg:h-full lg:w-1/2 flex items-center md:pr-6">
           <div className="lg:max-w-2xl flex flex-col gap-4 lg:gap-8 p-4">
-            <p className="text-2xl lg:text-4xl">안녕하세요</p>
             <h1 className="text-4xl lg:text-6xl font-medium">
               No matter where you're coming from, we WILL make a champion out of you!
             </h1>
@@ -25,7 +44,7 @@ export default function Hero() {
               you what the best use to beat the best.
             </h2>
             <button className="lg:mr-auto rounded-full border-2 border-black py-3 px-6 lg:inline-block hover:border-pear hover:bg-pear hover:text-white font-semibold transition-colors delay-75 duration-200">
-              Explore our store
+              See Class Schedule
             </button>
           </div>
         </div>

@@ -60,7 +60,6 @@ export default function NavBar() {
               hasScrolled ? "p-6" : "p-6 md:p-12 md:pl-6"
             }`}
           >
-            <Logo />
             <button
               className="lg:hidden block"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -103,7 +102,7 @@ export default function NavBar() {
                       } px-4 py-2 rounded-full transition-colors duration-300 text-lg tracking-wider`
                 }
               >
-                Products
+                Classes
               </NavLink>
               <NavLink
                 to="#our-store"
@@ -115,7 +114,7 @@ export default function NavBar() {
                       } px-4 py-2 rounded-full transition-colors duration-300 text-lg tracking-wider`
                 }
               >
-                Our Store
+                FAQ
               </NavLink>
               <NavLink
                 to="#contact"
